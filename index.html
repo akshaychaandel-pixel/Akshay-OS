@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akshay Chandel OS — PPC & Paid Media Specialist</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+  <!-- Mobile OS (Hidden on Desktop) -->
+  <div id="mobile-os">
+    
+    <div class="mobile-hero">
+      <h1 class="mobile-hero-headline">
+        <span class="ohhh">Ohhhh,</span>my marketing.
+      </h1>
+      <div class="mobile-hero-identity">
+        <strong>Akshay Chandel</strong>
+        <h3>PPC & Paid Media Specialist</h3>
+      </div>
+      <p class="mobile-hero-bio">
+        I build and optimize paid-media campaigns across Google, Meta and LinkedIn — focused on lead quality, accurate measurement and real business outcomes.
+      </p>
+      <div class="platform-strip mobile-platform-strip">
+        <span>Google Ads</span>
+        <span>Meta Ads</span>
+        <span>LinkedIn Ads</span>
+      </div>
+    </div>
+
+    <!-- The Javascript will inject the app icons here -->
+    <div id="mobile-app-grid"></div>
+
+    <div class="mobile-dock">
+      <button class="dock-btn" id="dock-work">
+        <div class="icon-img icon-folder" style="margin: 0 auto; width:24px; height:24px;"></div>
+        Work
+      </button>
+      <button class="dock-btn" id="dock-resume">
+        <div class="icon-img icon-file" style="margin: 0 auto; width:24px; height:24px;"></div>
+        Resume
+      </button>
+      <button class="dock-btn" id="dock-contact">
+        <div class="icon-img icon-contact" style="margin: 0 auto; width:24px; height:24px;"></div>
+        Contact
+      </button>
+    </div>
+  </div>
+
+
+
+  <div id="desktop">
+    <!-- Icons will be injected by app.js -->
+  </div>
+
+  <div id="taskbar">
+    <button id="start-button">
+      <span class="start-icon"></span> Start
+    </button>
+    <div id="taskbar-windows">
+      <!-- Taskbar items injected here -->
+    </div>
+    <div id="system-tray">
+      <div class="tray-icon"></div>
+      <div id="clock">12:00 PM</div>
+    </div>
+  </div>
+
+  <div id="start-menu">
+    <div class="start-menu-banner">
+      <span><strong>Akshay Chandel</strong> OS</span>
+    </div>
+    <div class="start-menu-items" id="start-menu-list">
+      <!-- Start menu items injected here -->
+    </div>
+  </div>
+
+  <!-- Template for a generic window -->
+  <template id="window-template">
+    <div class="window">
+      <div class="title-bar">
+        <span class="title-bar-text">Title</span>
+        <div class="title-bar-controls">
+          <button class="minimize-btn">_</button>
+          <button class="maximize-btn">□</button>
+          <button class="close-btn">X</button>
+        </div>
+      </div>
+      <div class="window-body"></div>
+    </div>
+  </template>
+
+  <!-- Hero Welcome Dialog Template -->
+  <template id="welcome-template">
+    <div class="hero-welcome">
+      
+      <!-- LEFT 60% -->
+      <div class="hero-left">
+        <h1 class="hero-headline stagger-1">
+          <span class="ohhh">Ohhhh,</span> my marketing.
+        </h1>
+        
+        <div class="hero-identity stagger-2">
+          <strong>Akshay Chandel</strong>
+          <h3>PPC & Paid Media Specialist</h3>
+        </div>
+        
+        <p class="hero-bio stagger-2">
+          I build and optimize paid-media campaigns across Google, Meta and LinkedIn — with a focus on lead quality, accurate measurement and real business outcomes.
+        </p>
+        
+        <div class="platform-strip stagger-3">
+          <span>Google Ads</span>
+          <span>Meta Ads</span>
+          <span>LinkedIn Ads</span>
+          <span>GA4</span>
+          <span>GTM</span>
+          <span>Looker Studio</span>
+        </div>
+        
+        <div class="hero-ctas stagger-4">
+          <button class="win-btn primary-btn" id="btn-welcome-work">Open Selected Work &rarr;</button>
+          <button class="win-btn secondary-btn" id="btn-welcome-about">About Me</button>
+          <a href="#" class="resume-link">Resume.pdf</a>
+        </div>
+        
+        <div class="terminal-detail stagger-4">
+          > portfolio_status: ready
+        </div>
+      </div>
+      
+      </div>
+    </div>
+  </template>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
