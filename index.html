@@ -7,45 +7,39 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Custom dynamic cursor -->
+  <div id="custom-cursor"></div>
   
   <!-- Mobile OS (Hidden on Desktop) -->
   <div id="mobile-os">
     
     <div class="mobile-hero">
-      <h1 class="mobile-hero-headline">
-        <span class="ohhh">Ohhhh,</span>my marketing.
-      </h1>
+      <div class="mobile-profile-label">AKSHAY_OS / PROFILE</div>
+      
       <div class="mobile-hero-identity">
         <strong>Akshay Chandel</strong>
         <h3>PPC & Paid Media Specialist</h3>
       </div>
+      
       <p class="mobile-hero-bio">
-        I build and optimize paid-media campaigns across Google, Meta and LinkedIn — focused on lead quality, accurate measurement and real business outcomes.
+        I build and optimize paid-media campaigns across Google, Meta and LinkedIn — with a focus on lead quality, accurate measurement and real business outcomes.
       </p>
+      
       <div class="platform-strip mobile-platform-strip">
         <span>Google Ads</span>
         <span>Meta Ads</span>
         <span>LinkedIn Ads</span>
+        <span>GA4</span>
+        <span>Tag Manager</span>
+        <span>Looker Studio</span>
+        <span>AI Tools</span>
       </div>
+      
+      <hr class="mobile-divider">
     </div>
 
     <!-- The Javascript will inject the app icons here -->
     <div id="mobile-app-grid"></div>
-
-    <div class="mobile-dock">
-      <button class="dock-btn" id="dock-work">
-        <div class="icon-img icon-folder" style="margin: 0 auto; width:24px; height:24px;"></div>
-        Work
-      </button>
-      <button class="dock-btn" id="dock-resume">
-        <div class="icon-img icon-file" style="margin: 0 auto; width:24px; height:24px;"></div>
-        Resume
-      </button>
-      <button class="dock-btn" id="dock-contact">
-        <div class="icon-img icon-contact" style="margin: 0 auto; width:24px; height:24px;"></div>
-        Contact
-      </button>
-    </div>
   </div>
 
 
@@ -82,9 +76,9 @@
       <div class="title-bar">
         <span class="title-bar-text">Title</span>
         <div class="title-bar-controls">
-          <button class="minimize-btn">_</button>
-          <button class="maximize-btn">□</button>
-          <button class="close-btn">X</button>
+          <button class="minimize-btn"><svg viewBox="0 0 10 10" width="10" height="10"><rect fill="currentColor" x="1" y="4.5" width="8" height="1.5"/></svg></button>
+          <button class="maximize-btn"><svg viewBox="0 0 10 10" width="10" height="10"><path fill="none" stroke="currentColor" stroke-width="1.5" d="M1.5 1.5h7v7h-7z"/></svg></button>
+          <button class="close-btn"><svg viewBox="0 0 10 10" width="10" height="10"><path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M2.5 2.5l5 5M7.5 2.5l-5 5"/></svg></button>
         </div>
       </div>
       <div class="window-body"></div>
@@ -98,7 +92,8 @@
       <!-- LEFT 60% -->
       <div class="hero-left">
         <h1 class="hero-headline stagger-1">
-          <span class="ohhh">Ohhhh,</span> my marketing.
+          <span class="ohhh">Ohhhh,</span>
+          <span class="my-marketing">my marketing.</span>
         </h1>
         
         <div class="hero-identity stagger-2">
@@ -107,26 +102,13 @@
         </div>
         
         <p class="hero-bio stagger-2">
-          I build and optimize paid-media campaigns across Google, Meta and LinkedIn — with a focus on lead quality, accurate measurement and real business outcomes.
+          &gt; I build and optimize paid-media campaigns across Google, Meta and LinkedIn — with a focus on lead quality, accurate measurement and real business outcomes.
         </p>
         
-        <div class="platform-strip stagger-3">
-          <span>Google Ads</span>
-          <span>Meta Ads</span>
-          <span>LinkedIn Ads</span>
-          <span>GA4</span>
-          <span>GTM</span>
-          <span>Looker Studio</span>
-        </div>
-        
         <div class="hero-ctas stagger-4">
-          <button class="win-btn primary-btn" id="btn-welcome-work">Open Selected Work &rarr;</button>
+          <button class="win-btn primary-btn" id="btn-welcome-work">Open Portfolio &rarr;</button>
           <button class="win-btn secondary-btn" id="btn-welcome-about">About Me</button>
-          <a href="#" class="resume-link">Resume.pdf</a>
-        </div>
-        
-        <div class="terminal-detail stagger-4">
-          > portfolio_status: ready
+          <a href="#" class="resume-link" id="btn-welcome-resume">Resume.pdf</a>
         </div>
       </div>
       

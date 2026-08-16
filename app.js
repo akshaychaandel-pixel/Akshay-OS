@@ -10,13 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
   const windows = {};
 
   const apps = [
-    { id: 'work', title: 'Selected Work', iconClass: 'icon-folder', content: generateWorkContent() },
+    { id: 'work', title: 'Portfolio', iconClass: 'icon-folder', content: generatePortfolioContent() },
     { id: 'about', title: 'About Me', iconClass: 'icon-about', content: generateAboutContent() },
-    { id: 'whatido', title: 'What I Do', iconClass: 'icon-file', content: '<h3>What I Do</h3><p>Focus on demand generation, customer acquisition, and improving efficiency.</p>' },
-    { id: 'experiments', title: 'Experiments', iconClass: 'icon-experiments', content: generateExperimentsContent() },
-    { id: 'results', title: 'Results', iconClass: 'icon-results', content: generateResultsContent() },
     { id: 'resume', title: 'Resume.pdf', iconClass: 'icon-file', content: generateResumeContent() },
-    { id: 'contact', title: 'Contact', iconClass: 'icon-contact', content: generateContactContent() }
+    { id: 'linkedin', title: 'LinkedIn', iconClass: 'icon-linkedin', isLink: true, url: PORTFOLIO_DATA.linkedinUrl, externalTarget: '_blank' },
+    { id: 'mail', title: 'Mail', iconClass: 'icon-mail', isLink: true, url: 'https://mail.google.com/mail/?view=cm&fs=1&to=akshaychaandel@gmail.com&su=Connecting%20regarding%20a%20Paid%20Media%20Opportunity&body=Hi%20Akshay%2C%0A%0AI%20recently%20reviewed%20your%20Paid%20Media%20portfolio%20and%20was%20impressed%20by%20your%20case%20studies%20and%20results.%20%0A%0AWe%20are%20currently%20looking%20for%20a%20%5BRole%2C%20e.g.%2C%20Performance%20Marketer%20%2F%20Paid%20Media%20Manager%5D%20and%20would%20love%20to%20discuss%20how%20your%20expertise%20might%20align%20with%20our%20team%27s%20goals.%0A%0APlease%20let%20me%20know%20your%20availability%20for%20a%20quick%20chat.%0A%0ABest%20regards%2C%0A%5BYour%20Name%20%2F%20Company%5D', externalTarget: '_blank' },
+    { id: 'recycle', title: 'Recycle Bin', iconClass: 'icon-recycle', content: '<div style="text-align:center; padding: 40px; font-family:var(--font-primary);"><h2 style="font-size:24px; font-weight:600; margin-bottom:10px;">0 items</h2><p style="color:#888;">Bad leads removed successfully.</p></div>', hideFromStartMenu: true }
   ];
 
   // Initialize Desktop & Mobile Icons
@@ -25,8 +24,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   apps.forEach(app => {
     // --- Desktop Icon ---
-    const iconDiv = document.createElement('div');
+    const iconDiv = document.createElement(app.isLink ? 'a' : 'div');
     iconDiv.className = 'desktop-icon';
+    if (app.isLink) {
+      iconDiv.href = app.url;
+      iconDiv.target = app.externalTarget || '_blank';
+      if (iconDiv.target === '_blank') iconDiv.rel = 'noopener noreferrer';
+      iconDiv.style.textDecoration = 'none';
+      iconDiv.style.color = 'inherit';
+    }
     iconDiv.innerHTML = `
       <div class="icon-img ${app.iconClass}"></div>
       <div class="icon-text-container">${app.title}</div>
@@ -39,40 +45,64 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedIcon = iconDiv;
     });
     
-    iconDiv.addEventListener('dblclick', (e) => {
-      e.stopPropagation();
-      if (window.innerWidth > 768) {
-        openWindow(app.id, app.title, app.content, app.iconClass);
-        iconDiv.classList.remove('selected');
-        selectedIcon = null;
-      }
-    });
+    if (!app.isLink) {
+      iconDiv.addEventListener('dblclick', (e) => {
+        e.stopPropagation();
+        if (window.innerWidth > 768) {
+          openWindow(app.id, app.title, app.content, app.iconClass);
+          iconDiv.classList.remove('selected');
+          selectedIcon = null;
+        }
+      });
+    }
     
     desktop.appendChild(iconDiv);
 
     // --- Mobile Grid Icon ---
-    if (mobileAppGrid) {
-      const mobIcon = document.createElement('div');
-      mobIcon.className = 'desktop-icon'; // Reuse style for grid layout
+    if (mobileAppGrid && !app.hideFromStartMenu) {
+      const mobIcon = document.createElement(app.isLink ? 'a' : 'div');
+      mobIcon.className = 'desktop-icon'; 
+      if (app.isLink) {
+        mobIcon.href = app.url;
+        mobIcon.target = app.externalTarget || '_blank';
+        if (mobIcon.target === '_blank') mobIcon.rel = 'noopener noreferrer';
+        mobIcon.style.textDecoration = 'none';
+        mobIcon.style.color = 'inherit';
+      }
       mobIcon.innerHTML = `
         <div class="icon-img ${app.iconClass}" style="margin: 0 auto;"></div>
         <div class="icon-text-container" style="text-align:center;">${app.title}</div>
       `;
-      mobIcon.addEventListener('click', (e) => {
-        openWindow(app.id, app.title, app.content, app.iconClass);
-      });
+      if (!app.isLink) {
+        mobIcon.addEventListener('click', (e) => {
+          openWindow(app.id, app.title, app.content, app.iconClass);
+        });
+      }
       mobileAppGrid.appendChild(mobIcon);
     }
 
     // Start Menu Item
-    const menuItem = document.createElement('div');
-    menuItem.className = 'start-menu-item';
-    menuItem.innerHTML = `<div class="menu-icon ${app.iconClass}"></div><span>${app.title}</span>`;
-    menuItem.addEventListener('click', () => {
-      openWindow(app.id, app.title, app.content, app.iconClass);
-      closeStartMenu();
-    });
-    startMenuList.appendChild(menuItem);
+    if (!app.hideFromStartMenu) {
+      const menuItem = document.createElement(app.isLink ? 'a' : 'div');
+      menuItem.className = 'start-menu-item';
+      if (app.isLink) {
+        menuItem.href = app.url;
+        menuItem.target = app.externalTarget || '_blank';
+        if (menuItem.target === '_blank') menuItem.rel = 'noopener noreferrer';
+        menuItem.style.textDecoration = 'none';
+        menuItem.style.color = 'inherit';
+        menuItem.style.display = 'flex';
+      }
+      menuItem.innerHTML = `<div class="menu-icon ${app.iconClass}"></div><span>${app.title}</span>`;
+      
+      menuItem.addEventListener('click', () => {
+        if (!app.isLink) {
+          openWindow(app.id, app.title, app.content, app.iconClass);
+        }
+        closeStartMenu();
+      });
+      startMenuList.appendChild(menuItem);
+    }
   });
 
   // Desktop click deselects icons
@@ -81,22 +111,6 @@ document.addEventListener('DOMContentLoaded', () => {
       selectedIcon.classList.remove('selected');
       selectedIcon = null;
     }
-  });
-
-  // Mobile Dock Bindings
-  const dockWork = document.getElementById('dock-work');
-  if (dockWork) dockWork.addEventListener('click', () => {
-    openWindow('work', 'Selected Work', generateWorkContent(), 'icon-folder');
-  });
-
-  const dockResume = document.getElementById('dock-resume');
-  if (dockResume) dockResume.addEventListener('click', () => {
-    openWindow('resume', 'Resume.pdf', generateResumeContent(), 'icon-file');
-  });
-
-  const dockContact = document.getElementById('dock-contact');
-  if (dockContact) dockContact.addEventListener('click', () => {
-    openWindow('contact', 'Contact', generateContactContent(), 'icon-contact');
   });
 
   // Start Menu Toggle
@@ -128,7 +142,18 @@ document.addEventListener('DOMContentLoaded', () => {
   }, 1000);
 
   // Welcome Window Logic (Desktop Only Hero)
-  if (window.innerWidth > 768) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const fromCase = urlParams.get('from') === 'case';
+  
+  if (fromCase) {
+    // Clear the parameter from the URL so a manual refresh will show the popup again
+    window.history.replaceState({}, document.title, window.location.pathname);
+    
+    // Automatically open the work folder since they just came from there
+    setTimeout(() => {
+      openWindow('work', 'Portfolio', generatePortfolioContent(), 'icon-folder');
+    }, 100);
+  } else if (window.innerWidth > 768) {
     setTimeout(() => {
       
       const welcomeContent = document.getElementById('welcome-template').innerHTML;
@@ -145,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
             winEl.querySelector('.close-btn').click();
             // Open the work window after a short delay for a satisfying transition
             setTimeout(() => {
-              openWindow('work', 'Selected Work', generateWorkContent(), 'icon-folder');
+              openWindow('work', 'Portfolio', generatePortfolioContent(), 'icon-folder');
             }, 200);
           });
           
@@ -371,20 +396,67 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
       </div>
       <p style="line-height: 1.5; margin-bottom: 15px;">${data.bio}</p>
+      
+      <div style="margin-bottom: 20px; display: flex; gap: 10px; flex-wrap: wrap;">
+        <button class="win-btn primary-btn" onclick="openWindow('work', 'Portfolio', generatePortfolioContent(), 'icon-folder')">View Portfolio</button>
+        <button class="win-btn" onclick="openWindow('resume', 'Resume.pdf', generateResumeContent(), 'icon-file')">Download Resume</button>
+        <a class="win-btn" href="${PORTFOLIO_DATA.linkedinUrl}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: inline-block;">LinkedIn</a>
+        <a class="win-btn" href="https://mail.google.com/mail/?view=cm&fs=1&to=akshaychaandel@gmail.com&su=Connecting%20regarding%20a%20Paid%20Media%20Opportunity&body=Hi%20Akshay%2C%0A%0AI%20recently%20reviewed%20your%20Paid%20Media%20portfolio%20and%20was%20impressed%20by%20your%20case%20studies%20and%20results.%20%0A%0AWe%20are%20currently%20looking%20for%20a%20%5BRole%2C%20e.g.%2C%20Performance%20Marketer%20%2F%20Paid%20Media%20Manager%5D%20and%20would%20love%20to%20discuss%20how%20your%20expertise%20might%20align%20with%20our%20team%27s%20goals.%0A%0APlease%20let%20me%20know%20your%20availability%20for%20a%20quick%20chat.%0A%0ABest%20regards%2C%0A%5BYour%20Name%20%2F%20Company%5D" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit; display: inline-block;">Email Me</a>
+      </div>
+
       <div style="border-top: 1px solid #ccc; padding-top: 10px;">
-        <h3 style="margin-bottom: 8px;">Technical Proficiencies</h3>
-        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 5px; font-size: 11px;">
-          ${data.skills.slice(0,10).map(s => `<li>${s}</li>`).join('')}
+        <h3 style="margin-bottom: 15px;">What I work across</h3>
+        <ul style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; font-size: 11px; padding-left: 20px; line-height: 1.4;">
+          <li>Google Ads</li>
+          <li>Meta Ads</li>
+          <li>LinkedIn Ads</li>
+          <li>Paid Search</li>
+          <li>Lead Generation</li>
+          <li>Performance Max</li>
+          <li>GA4</li>
+          <li>Google Tag Manager</li>
+          <li>Looker Studio</li>
+          <li>Conversion Tracking</li>
+          <li>Landing Page Optimization</li>
+          <li>Lead Quality</li>
+          <li>Search Intent</li>
+          <li>Campaign Optimization</li>
         </ul>
       </div>
     `;
   }
 
-  function generateWorkContent() {
+  function generatePortfolioContent() {
+    return `
+      <div class="file-explorer">
+        <div class="file-item" 
+             onclick="if(window.innerWidth <= 768) openWindow('cases', 'Case Studies', generateCaseStudiesContent(), 'icon-folder')"
+             ondblclick="if(window.innerWidth > 768) openWindow('cases', 'Case Studies', generateCaseStudiesContent(), 'icon-folder')">
+          <div class="icon-folder"></div>
+          <span>Case Studies</span>
+        </div>
+        <div class="file-item" 
+             onclick="if(window.innerWidth <= 768) openWindow('creatives', 'Ad Creatives', generateCreativesContent(), 'icon-creatives')"
+             ondblclick="if(window.innerWidth > 768) openWindow('creatives', 'Ad Creatives', generateCreativesContent(), 'icon-creatives')">
+          <div class="icon-folder"></div>
+          <span>Ad Creatives</span>
+        </div>
+        <div class="file-item" 
+             onclick="if(window.innerWidth <= 768) openWindow('landingpages', 'Landing Pages', generateLandingPagesContent(), 'icon-landing')"
+             ondblclick="if(window.innerWidth > 768) openWindow('landingpages', 'Landing Pages', generateLandingPagesContent(), 'icon-landing')">
+          <div class="icon-folder"></div>
+          <span>Landing Pages</span>
+        </div>
+      </div>
+      <div style="border-top: 1px solid var(--border-dark); margin-top: 15px; padding-top: 5px; font-size: 10px; color: #555;">
+        Status: Loaded | Type: Directory
+      </div>
+    `;
+  }
+
+  function generateCaseStudiesContent() {
     const cases = PORTFOLIO_DATA.caseStudies;
-    // Note: The click handler redirects to the modern UI, showing a loading message first
     window.openCaseStudyRoute = function(id, title) {
-      // Modern smooth transition overlay
       const overlay = document.createElement('div');
       overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(17, 27, 33, 0.85);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;';
       overlay.innerHTML = `
@@ -396,12 +468,11 @@ document.addEventListener('DOMContentLoaded', () => {
       `;
       document.body.appendChild(overlay);
       
-      // trigger animation
       requestAnimationFrame(() => overlay.style.opacity = '1');
       
       setTimeout(() => {
         window.location.href = `work/${id}/index.html`;
-      }, 700); 
+      }, 400); 
     };
 
     return `
@@ -415,40 +486,70 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         `).join('')}
       </div>
-      <div style="border-top: 1px solid var(--border-dark); margin-top: 15px; padding-top: 5px; font-size: 10px; color: #555;">
-        Status: Loaded | Type: Directory
-      </div>
     `;
   }
 
-  function generateExperimentsContent() {
+  window.openLightbox = function(imgSrc, title, platform) {
+    const overlay = document.createElement('div');
+    overlay.className = 'lightbox-overlay';
+    overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:10000;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;padding:20px;';
+    
+    overlay.innerHTML = `
+      <div style="position:absolute;top:20px;right:30px;color:white;font-size:30px;cursor:pointer;font-family:sans-serif;" onclick="this.parentElement.remove()">&times;</div>
+      <img src="${imgSrc}" style="max-width:90%;max-height:80vh;object-fit:contain;border-radius:4px;box-shadow:0 10px 30px rgba(0,0,0,0.5);">
+      <div style="color:white;margin-top:20px;text-align:center;font-family:'Inter',sans-serif;">
+        <strong style="font-size:18px;display:block;margin-bottom:5px;">${title}</strong>
+        <span style="font-size:14px;color:#aaa;">${platform}</span>
+      </div>
+    `;
+    
+    overlay.onclick = function(e) {
+      if(e.target === overlay) {
+        overlay.remove();
+      }
+    };
+    
+    document.body.appendChild(overlay);
+    requestAnimationFrame(() => overlay.style.opacity = '1');
+  };
+
+  function generateCreativesContent() {
     return `
-      <div class="file-explorer">
-        ${PORTFOLIO_DATA.experiments.map(e => `
-          <div class="file-item">
-            <div class="icon-file"></div>
-            <span>${e.filename}</span>
+      <div style="padding: 15px; display: grid; grid-template-columns: repeat(auto-fill, minmax(120px, 1fr)); gap: 10px;">
+        ${PORTFOLIO_DATA.adCreatives.map(c => `
+          <div class="gallery-thumb" style="cursor: pointer; aspect-ratio: 1; background-color: #eee; background-image: url('${c.thumb}'); background-size: cover; background-position: center; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius-sm); overflow: hidden; position: relative; transition: transform 0.2s, box-shadow 0.2s;" 
+               onclick="openLightbox('${c.thumb}', '${c.client}', '${c.platform}')"
+               onmouseover="this.style.transform='scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.2)';"
+               onmouseout="this.style.transform='scale(1)'; this.style.boxShadow='none';">
+            <div style="position:absolute;bottom:0;left:0;width:100%;background:linear-gradient(transparent, rgba(0,0,0,0.8));color:white;padding:15px 8px 8px;font-size:11px;opacity:0;transition:opacity 0.2s;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0'">
+              ${c.client}
+            </div>
           </div>
         `).join('')}
       </div>
-      <p style="margin-top: 10px; color: #666; font-size: 10px;">System Status: Optimizing...</p>
     `;
   }
 
-  function generateResultsContent() {
+  function generateLandingPagesContent() {
     return `
-      <h3 style="margin-bottom: 15px;">Performance Highlights</h3>
-      <div class="metric-grid">
-      ${PORTFOLIO_DATA.results.map(r => `
-        <div class="metric-card">
-          <div style="font-size: 18px; margin-bottom: 5px;">${r.icon}</div>
-          <div class="value">${r.value}</div>
-          <div style="font-size:10px; color:#555;">${r.label}</div>
-        </div>
-      `).join('')}
-    </div>`;
+      <div style="padding: 10px; display: flex; flex-direction: column; gap: 20px; max-height: 450px; overflow-y: auto;">
+        <p style="font-style: italic; color: #555; margin-bottom: 10px; padding: 0 10px;">Getting the click is only part of the job. The ads and landing experience need to work together.</p>
+        ${PORTFOLIO_DATA.landingPages.map(lp => `
+          <div style="display: flex; gap: 15px; background: rgba(0,0,0,0.02); padding: 15px; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius-md); flex-wrap: wrap;">
+            <div style="flex: 0 0 200px; height: 150px; background-image: url('${lp.image}'); background-size: cover; background-position: top center; border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius-sm);"></div>
+            <div style="flex: 1; min-width: 200px; font-size: 12px; line-height: 1.5;">
+              <h3 style="margin-bottom: 5px; font-size: 16px;">${lp.client}</h3>
+              <div style="margin-bottom: 10px; color: #555;"><strong>${lp.purpose}</strong> | Traffic: ${lp.traffic}</div>
+              <p style="margin-bottom: 5px;"><strong>The Goal:</strong> ${lp.goal}</p>
+              <p style="margin-bottom: 5px;"><strong>The Audience:</strong> ${lp.audience}</p>
+              <p style="margin-bottom: 5px;"><strong>What I worked on:</strong> ${lp.whatIWorkedOn}</p>
+              <p style="margin-top: 10px; font-style: italic; color: #666;">My role: ${lp.role}</p>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
   }
-
   function generateResumeContent() {
     return `
       <div style="padding: 10px; max-width: 500px;">
@@ -470,26 +571,32 @@ document.addEventListener('DOMContentLoaded', () => {
       </div>
     `;
   }
+  
+  window.openWindow = openWindow;
+  window.generatePortfolioContent = generatePortfolioContent;
+  window.generateResumeContent = generateResumeContent;
+  window.generateCaseStudiesContent = generateCaseStudiesContent;
+  window.generateCreativesContent = generateCreativesContent;
+  window.generateLandingPagesContent = generateLandingPagesContent;
 
-  function generateContactContent() {
-    return `
-      <div style="padding: 10px;">
-        <h3 style="margin-bottom: 10px;">Let's talk paid media.</h3>
-        <form style="display:flex;flex-direction:column;gap:5px;">
-          <label style="font-weight: bold;">Name:</label>
-          <input type="text" style="width:100%; max-width: 300px;">
-          
-          <label style="font-weight: bold;">Email:</label>
-          <input type="email" style="width:100%; max-width: 300px;">
-          
-          <label style="font-weight: bold;">Message:</label>
-          <textarea style="width:100%; max-width: 300px; height:80px;"></textarea>
-          
-          <div style="margin-top: 10px;">
-            <button type="button" class="win-btn" onclick="this.innerHTML='Sending...'; setTimeout(() => alert('Conversion recorded ✓'), 800)">Send Message</button>
-          </div>
-        </form>
-      </div>
-    `;
+  // Custom Cursor Logic
+  const cursor = document.getElementById('custom-cursor');
+  if (cursor && matchMedia('(pointer: fine)').matches) {
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+    });
+
+    document.addEventListener('mouseover', (e) => {
+      if (e.target.closest('a, button, .desktop-icon, .title-bar-controls button, .win-btn, .start-menu-item, .title-bar')) {
+        cursor.classList.add('hovering');
+      }
+    });
+
+    document.addEventListener('mouseout', (e) => {
+      if (e.target.closest('a, button, .desktop-icon, .title-bar-controls button, .win-btn, .start-menu-item, .title-bar')) {
+        cursor.classList.remove('hovering');
+      }
+    });
   }
 });
