@@ -363,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const data = PORTFOLIO_DATA.personal;
     return `
       <div style="display: flex; gap: 15px; align-items: flex-start; margin-bottom: 15px;">
-        <div style="width: 80px; height: 80px; background-image: url('../profile-pic%20(2).png'); background-size: cover; border: 2px inset var(--border-dark);"></div>
+        <div style="width: 80px; height: 80px; background-image: url('public/images/avatar.png'); background-size: cover; border: 2px inset var(--border-dark);"></div>
         <div>
           <h2 style="margin-bottom: 5px; font-size: 16px;">${data.name}</h2>
           <p style="font-weight: bold; margin-bottom: 5px;">${data.title}</p>
