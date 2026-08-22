@@ -605,13 +605,25 @@ document.addEventListener('DOMContentLoaded', () => {
             transform: translate(-50%, -50%) !important;
           }
           #win-resume iframe {
-            height: auto !important;
-            aspect-ratio: 1 / 1.15 !important;
+            display: none !important;
+          }
+          .mobile-pdf-fallback {
+            display: flex !important;
+          }
+          #win-resume .window-footer {
+            display: none !important;
           }
         }
       </style>
-      <div style="flex: 1; width: 100%; background: white;">
+      <div style="flex: 1; width: 100%; background: white; display: flex; flex-direction: column;">
         <iframe src="Resume%202.0.pdf#view=Fit&navpanes=0&toolbar=0&scrollbar=0" style="width: 100%; height: 100%; border: none; display: block; pointer-events: none;" scrolling="no"></iframe>
+        
+        <div class="mobile-pdf-fallback" style="display: none; flex-direction: column; align-items: center; justify-content: center; flex: 1; padding: 40px 20px; text-align: center; background: #f8f9ff;">
+          <span class="material-symbols-outlined" style="font-size: 64px; color: #555; margin-bottom: 20px;">description</span>
+          <h3 style="font-family: 'Montserrat', sans-serif; font-size: 20px; font-weight: 600; margin-bottom: 10px; color: #111;">Resume 2.0.pdf</h3>
+          <p style="font-family: 'Inter', sans-serif; font-size: 15px; color: #666; margin-bottom: 25px; line-height: 1.5;">PDF previews are limited on mobile browsers. Please download the file directly to your device.</p>
+          <a href="#" onclick="window.forceDownloadResume(event, 'Resume%202.0.pdf', 'Akshay_Chandel_Resume.pdf')" class="win-btn primary-btn" style="text-decoration: none; display: inline-block; font-size: 16px; padding: 12px 28px; border-radius: 99px;">Download PDF</a>
+        </div>
       </div>
       <div class="window-footer" style="padding: 15px; border-top: 1px solid var(--win-border); background: #f8f9ff; display: flex; justify-content: flex-end;">
         <a href="#" onclick="window.forceDownloadResume(event, 'Resume%202.0.pdf', 'Akshay_Chandel_Resume.pdf')" class="win-btn primary-btn" style="text-decoration: none; display: inline-block; font-size: 15px; padding: 10px 24px;">Download PDF</a>
