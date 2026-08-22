@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>About Me - Paid Media Specialist</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "surface-container-lowest": "#ffffff",
+                "on-primary-fixed": "#131b2e",
+                "surface-container-highest": "#d3e4fe",
+                "on-secondary-fixed-variant": "#005236",
+                "primary-fixed-dim": "#bec6e0",
+                "outline-variant": "#c6c6cd",
+                "on-tertiary-fixed": "#001a42",
+                "surface-container-high": "#dce9ff",
+                "on-surface": "#0b1c30",
+                "primary-fixed": "#dae2fd",
+                "inverse-surface": "#213145",
+                "on-error-container": "#93000a",
+                "on-secondary-fixed": "#002113",
+                "on-surface-variant": "#45464d",
+                "on-background": "#0b1c30",
+                "surface-tint": "#565e74",
+                "secondary": "#006c49",
+                "tertiary": "#000000",
+                "error-container": "#ffdad6",
+                "surface-bright": "#f8f9ff",
+                "secondary-fixed-dim": "#4edea3",
+                "surface": "#f8f9ff",
+                "primary": "#000000",
+                "tertiary-fixed-dim": "#adc6ff",
+                "surface-container-low": "#eff4ff",
+                "on-tertiary": "#ffffff",
+                "on-primary-container": "#7c839b",
+                "on-primary-fixed-variant": "#3f465c",
+                "inverse-on-surface": "#eaf1ff",
+                "on-primary": "#ffffff",
+                "on-tertiary-fixed-variant": "#004395",
+                "primary-container": "#131b2e",
+                "surface-container": "#e5eeff",
+                "tertiary-container": "#001a42",
+                "tertiary-fixed": "#d8e2ff",
+                "background": "#f8f9ff",
+                "surface-variant": "#d3e4fe",
+                "on-secondary": "#ffffff",
+                "error": "#ba1a1a",
+                "on-error": "#ffffff",
+                "outline": "#76777d",
+                "secondary-fixed": "#6ffbbe",
+                "on-secondary-container": "#00714d",
+                "inverse-primary": "#bec6e0",
+                "on-tertiary-container": "#3980f4",
+                "surface-dim": "#cbdbf5",
+                "secondary-container": "#6cf8bb"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "container-max": "1200px",
+                "gutter": "24px",
+                "margin-mobile": "16px",
+                "section-gap": "40px",
+                "unit": "8px"
+        },
+        "fontFamily": {
+                "headline-md": [
+                        "Montserrat"
+                ],
+                "label-sm": [
+                        "JetBrains Mono"
+                ],
+                "display-lg": [
+                        "Montserrat"
+                ],
+                "body-lg": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "display-lg-mobile": [
+                        "Montserrat"
+                ]
+        },
+        "fontSize": {
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "1.3",
+                                "fontWeight": "600"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "1.0",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "1.1",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "16px",
+                        {
+                                "lineHeight": "1.6",
+                                "fontWeight": "400"
+                        }
+                ],
+                "body-md": [
+                        "14px",
+                        {
+                                "lineHeight": "1.5",
+                                "fontWeight": "400"
+                        }
+                ],
+                "display-lg-mobile": [
+                        "32px",
+                        {
+                                "lineHeight": "1.2",
+                                "fontWeight": "700"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { font-family: 'Inter', sans-serif; background: transparent !important; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(0,0,0,0.03); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.2); border-radius: 4px; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased selection:bg-surface-variant selection:text-on-surface flex flex-col min-h-screen">
+<main class="py-section-gap px-margin-mobile md:px-gutter max-w-container-max mx-auto flex-grow w-full">
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-stretch">
+<!-- Top Left Card: Profile & Intro -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col gap-6 shadow-sm">
+<div class="w-24 h-24 rounded-full border border-outline-variant overflow-hidden bg-surface-container flex items-center justify-center shrink-0">
+<img class="w-full h-full object-cover" alt="Profile" src="images/profile-pic.png"/>
+</div>
+<div>
+<h1 class="font-headline-md text-headline-md text-primary mb-2">
+                        I run ads that make sense and get results.
+                    </h1>
+</div>
+<div class="flex flex-col gap-3 mt-auto">
+<a class="w-full bg-primary-container text-on-primary font-body-md text-body-md py-3 text-center rounded-full hover:opacity-90 transition-opacity flex justify-center items-center gap-2 cursor-pointer" href="https://www.linkedin.com/in/akshay-chandel/" target="_blank">
+                        Connect on LinkedIn
+                        <span class="material-symbols-outlined text-[20px]">open_in_new</span>
+</a>
+</div>
+</div>
+<!-- Top Right Card: Bio -->
+<div class="lg:col-span-8 bg-surface-container-lowest border border-outline-variant rounded-xl p-8 flex flex-col justify-center shadow-sm">
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-6">About Me</h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-3xl mb-8">
+                        I build and optimize paid media campaigns that focus on lead quality and real business outcomes. From setting up accurate tracking to designing creatives that connect with actual people, I look at the entire funnel to see what is actually working. If a campaign isn't driving growth, I dig into the data, find the problem, and fix it.
+                    </p>
+<h3 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest mb-6">Key Expertise</h3>
+<div class="flex flex-wrap gap-3">
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">Search Engine Marketing</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">Social Advertising</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">Analytics &amp; Attribution</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">A/B Testing &amp; CRO</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">Google Ads</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">Meta Ads</span>
+<span class="font-label-sm text-label-sm bg-surface-container-high text-on-surface border border-outline-variant px-4 py-2 rounded-full">LinkedIn Ads</span>
+</div>
+</div>
+<!-- Service Cards Row -->
+<!-- Service 1 -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary-container" data-weight="fill">my_location</span>
+</div>
+<div class="font-headline-md text-[20px] font-semibold text-primary mb-3">Smart Targeting</div>
+<p class="font-body-md text-on-surface-variant">Reaching real people, not just pixels. I build campaigns based on actual user intent to deliver consistent, profitable results.</p>
+</div>
+<!-- Service 2 -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-primary-container">autorenew</span>
+</div>
+<div class="font-headline-md text-[20px] font-semibold text-primary mb-3">Agile Optimization</div>
+<p class="font-body-md text-on-surface-variant">Clicks do not matter if the page doesn't convert. I actively optimize the entire user journey from the first ad to the final form.</p>
+</div>
+<!-- Service 3 -->
+<div class="lg:col-span-4 bg-surface-container-lowest border border-outline-variant rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-secondary-container" data-weight="fill">lightbulb</span>
+</div>
+<div class="font-headline-md text-[20px] font-semibold text-primary mb-3">Insight-Led Growth</div>
+<p class="font-body-md text-on-surface-variant">Every adjustment I make is backed by accurate tracking, clean data, and continuous testing to ensure sustainable growth.</p>
+</div>
+</section>
+</main>
+</body></html>

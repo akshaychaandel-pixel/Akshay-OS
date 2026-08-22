@@ -11,8 +11,8 @@ const PORTFOLIO_DATA = {
     bio: "My work sits at the intersection of search intent, creative experimentation, analytics and conversion optimization. I treat every campaign as a testable hypothesis — not a set-and-forget setup.",
     location: "India",
     email: "akshay@email.com",
-    linkedin: "https://linkedin.com/in/akshaychandel",
-    resumeFile: "resume.pdf",
+    linkedin: "https://www.linkedin.com/in/akshay-chandel/",
+    resumeFile: "Resume 2.0.pdf",
     formspreeEndpoint: "",
     skills: [
       "Google Ads", "Meta Ads", "LinkedIn Ads", "GA4", "GTM",
@@ -27,6 +27,14 @@ const PORTFOLIO_DATA = {
     { label: "Leads & Calls", value: "17,000+", icon: "🎯", placeholder: false },
     { label: "Ad Accounts", value: "9", icon: "📊", placeholder: false },
     { label: "Longest Account", value: "20 months", icon: "⏳", placeholder: false }
+  ],
+
+  certifications: [
+    { title: "AI-Powered Performance Ads Certification", thumb: "https://placehold.co/400x300/e9ecef/555555?text=AI-Powered+Ads", link: "https://skillshop.credential.net/c68d5b96-c2dd-4320-985d-f0fda254b1f1#acc.KSFfBsnv" },
+    { title: "Google Ads Search Certification", thumb: "https://placehold.co/400x300/e9ecef/555555?text=Search+Ads", link: "https://skillshop.credential.net/fb99a2eb-e4e9-4e2f-8122-215e3841d799#acc.oH7ZyxfU" },
+    { title: "Google Ads Display Certification", thumb: "https://placehold.co/400x300/e9ecef/555555?text=Display+Ads", link: "https://skillshop.credential.net/db6e7966-ab00-4e56-a01e-ca14f251a34b#acc.CzB9rmhc" },
+    { title: "Google Ads Measurement Certification", thumb: "https://placehold.co/400x300/e9ecef/555555?text=Measurement", link: "https://skillshop.credential.net/f1e0a29d-a5d0-48c1-942d-11025d5a69a5#acc.GFNcJ5Y3" },
+    { title: "Google Analytics Certification", thumb: "https://placehold.co/400x300/e9ecef/555555?text=Analytics", link: "https://skillshop.credential.net/0c3e9d59-da95-45d9-9a35-b30df401caac#acc.tnCsyJIR" }
   ],
 
   caseStudies: [
@@ -141,62 +149,8 @@ const PORTFOLIO_DATA = {
       lookingBack: "I measured both channels largely using cost per lead. For industrial B2B, one high-value order can outweigh hundreds of low-cost enquiries. The stronger measurement model would have tracked downstream value and revenue by channel."
     },
     {
-      id: "accent-consulting",
-      folder: "05_Accent_HR_Software",
-      client: "Accent Consulting",
-      industry: "HR and payroll software",
-      location: "B2B SaaS",
-      platforms: "Meta Ads + LinkedIn Ads",
-      spend: "₹92,442",
-      period: "Campaign Duration",
-      subtitle: "B2B SaaS lead generation via Meta and LinkedIn Ads.",
-      intro: "The campaigns were reaching employees, students, and job seekers instead of the people who approve HR/payroll software. With a small budget, irrelevant traffic could not be hidden by volume.",
-      context: "Accent Consulting sells HR and payroll software. The decision-makers are typically business owners, CEOs, or senior HR directors. However, broad targeting on social channels often captures employees and job seekers who have zero buying power for enterprise software.",
-      whatIFound: "Poor audience targeting on broad channels was eating up a small budget before reaching actual decision-makers. The campaign was generating leads, but they were almost entirely unqualified.",
-      whatIChanged: [
-        { title: "Refined Meta Targeting", desc: "Focused heavily on business owners and CEOs to cut out employee/job-seeker noise." },
-        { title: "Leveraged LinkedIn Data", desc: "Used LinkedIn for its strongest capability: job-title and seniority targeting." },
-        { title: "Strengthened Forms", desc: "Included company size and role in lead forms to actively deter job seekers from submitting." }
-      ],
-      whatHappened: "The campaigns generated 207 total leads on ₹92,442 total spend. A critical finding emerged during testing: all 16 LinkedIn leads came directly from Message Ads. Sponsored Content (in-feed ads) generated zero leads on the exact same audience during the same month. For this specific B2B audience, direct inbox outreach was vastly superior to in-feed advertising.",
-      whatHappenedSummary: "207 total leads · 16 vs 0 (Message Ads vs Sponsored Content)",
-      evidenceImages: [
-        "../../public/images/accent-1.jpg",
-        "../../public/images/accent-2.jpg",
-        "../../public/images/accent-3.jpg",
-        "../../public/images/accent-4.jpg"
-      ],
-      lookingBack: "Approximately ₹80,000 was spread across 31 Meta ad sets. That left around ₹2,500 per ad set, which was too little for most ad sets to properly exit learning. Today, I would fund roughly three or four audiences properly and test them sequentially."
-    },
-    {
-      id: "newstrides",
-      folder: "06_NewStrides_Overseas_Education",
-      client: "NewStrides",
-      industry: "Overseas education",
-      location: "4 Cities",
-      platforms: "Meta Ads",
-      spend: "₹49.4 lakh",
-      period: "19 months",
-      subtitle: "Meta Ads lead generation for overseas education consulting.",
-      intro: "Students were applying for Ireland and UK master's programmes across four cities. Lead volume was not the main problem. Fewer than half of the leads were usable.",
-      context: "NewStrides helps students apply to international universities. The sales process relies on counsellors manually calling and guiding leads. A high volume of unqualified leads wastes expensive counselling time and burns out the sales team.",
-      whatIFound: "The account was generating leads, but the usable-lead share was only approximately 45%. Many students lacked the necessary academic background, financial capability, or were just browsing. The ad forms were too easy to submit.",
-      whatIChanged: [
-        { title: "Rebuilt Lead Forms", desc: "Changed forms to qualify rather than simply collect volume, asking specific questions about study intent and financial readiness." },
-        { title: "Added friction in ad copy", desc: "Put eligibility requirements and cost expectations directly into ad copy to deter unqualified clicks." },
-        { title: "Implemented feedback loops", desc: "Ran weekly lead-quality reviews with counselling teams to quickly adjust targeting based on actual conversation quality." }
-      ],
-      whatHappened: "Usable-lead share improved from approximately 45% to 65% on roughly the same spend over 19 months. The total lead volume (9,766 leads) became significantly more valuable to the business.",
-      whatHappenedSummary: "9,766 leads · 45% → 65% usable share · ₹49.4L spend",
-      evidenceImages: [
-        "../../public/images/newstrides-1.jpg",
-        "../../public/images/newstrides-2.jpg"
-      ],
-      lookingBack: "Friction in marketing is sometimes necessary. Adding barriers (like requirements in copy) reduced junk volume and increased actual usable pipeline. Counselling feedback is often the most important metric dashboard you have."
-    },
-    {
       id: "cheenti-digital",
-      folder: "07_Cheenti_Agency_Growth",
+      folder: "05_Cheenti_Agency_Growth",
       client: "Cheenti Digital",
       industry: "Digital Agency (Client Acquisition)",
       location: "India",
@@ -234,39 +188,249 @@ const PORTFOLIO_DATA = {
   adCreatives: [
     {
       id: "creative-1",
-      platform: "Meta Ads",
-      client: "Lumina World School",
-      objective: "Parent Enquiries",
-      role: "Concept, copy, direction and iteration",
-      aiAssisted: "Yes",
-      context: "Tested static vs raw video. Shaky footage of actual playgrounds outperformed polished stock graphics.",
-      image: "../../public/images/mount-1.jpg",
-      thumb: "../../public/images/mount-1.jpg"
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-20-42.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-20-42.jpg"
     },
     {
       id: "creative-2",
-      platform: "LinkedIn Ads",
-      client: "Accent Consulting",
-      objective: "B2B Software Demos",
-      role: "Message Match, Copywriting",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
       aiAssisted: "No",
-      context: "Calling out the specific HR job title dramatically improved CTR.",
-      image: "../../public/images/accent-1.jpg",
-      thumb: "../../public/images/accent-1.jpg"
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-20-49.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-20-49.jpg"
+    },
+    {
+      id: "creative-3",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-20-54.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-20-54.jpg"
+    },
+    {
+      id: "creative-4",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-20-57.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-20-57.jpg"
+    },
+    {
+      id: "creative-5",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-01.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-01.jpg"
+    },
+    {
+      id: "creative-6",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-05.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-05.jpg"
+    },
+    {
+      id: "creative-7",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-10.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-10.jpg"
+    },
+    {
+      id: "creative-8",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-14.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-14.jpg"
+    },
+    {
+      id: "creative-9",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-26.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-26.jpg"
+    },
+    {
+      id: "creative-10",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-31.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-31.jpg"
+    },
+    {
+      id: "creative-11",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-36.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-36.jpg"
+    },
+    {
+      id: "creative-12",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-41.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-41.jpg"
+    },
+    {
+      id: "creative-13",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-45.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-45.jpg"
+    },
+    {
+      id: "creative-14",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-49.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-49.jpg"
+    },
+    {
+      id: "creative-15",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-53.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-53.jpg"
+    },
+    {
+      id: "creative-16",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-21-57.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-21-57.jpg"
+    },
+    {
+      id: "creative-17",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-22-00.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-22-00.jpg"
+    },
+    {
+      id: "creative-18",
+      platform: "Design Portfolio",
+      client: "Ad Creative",
+      objective: "Marketing",
+      role: "Design",
+      aiAssisted: "No",
+      context: "Premium Ad Creative",
+      image: "public/ad-creatives/photo_2026-08-18_09-22-04.jpg",
+      thumb: "public/ad-creatives/photo_2026-08-18_09-22-04.jpg"
     }
   ],
 
   landingPages: [
     {
-      id: "lp-1",
-      client: "PC Technologies",
-      purpose: "Local Repair Lead Generation",
-      traffic: "Google Ads (Local Search)",
-      role: "Page structure, copy direction, message match, conversion thinking",
-      goal: "Convert high-intent emergency repair searches into immediate phone calls.",
-      audience: "People with broken devices needing same-day service nearby.",
-      whatIWorkedOn: "Simplified the header to feature a massive 'Call Now' button. Removed long-form paragraphs in favor of a 3-step 'How it works' visual.",
-      image: "../../public/images/pc-tech-1.jpg"
+      id: "lp-dpm-entertainment",
+      title: "DPM Mr, Miss, Mrs & Miss Teen India 2026",
+      description: "Premium pageant landing page with cinematic hero, category selection, judges panel, testimonial carousel, and urgency-driven registration. Built to convert aspiring models into paid registrations.",
+      industry: "Entertainment & Events",
+      role: "Full Page Design & Copy · AI-Assisted Build",
+      url: "https://dpm-entertainment.vercel.app/",
+      image: "public/ad-creatives/lp-dpm-entertainment.png"
+    },
+    {
+      id: "lp-pc-technologies",
+      title: "PC Technologies — Managed IT Services",
+      description: "B2B IT services landing page for a Washington-based MSP. Hero with consultation form, trust signals (20+ years, fast response), and service breakdowns designed to capture high-intent local search traffic.",
+      industry: "IT Services / B2B Local",
+      role: "Page Strategy, Copy & Conversion Architecture · AI-Assisted Build",
+      url: "https://pctechnologies.net/it-services/",
+      image: "public/ad-creatives/lp-pc-technologies.png"
+    },
+    {
+      id: "lp-avery-india",
+      title: "Avery Weigh-Tronix India — Process Weighing Solutions",
+      description: "Industrial B2B landing page for heavy-duty weighing systems. Dark premium design with enquiry CTA, product showcases (tank, ladle, bar weighing), industry-specific sections, and trust metrics (115+ years, 10k+ installations).",
+      industry: "B2B Industrial Manufacturing",
+      role: "Full Page Design, UX & Copy Direction · AI-Assisted Build",
+      url: "https://avery-india-weighing.vercel.app/",
+      image: "public/ad-creatives/lp-avery-india.png"
+    },
+    {
+      id: "lp-newstrides",
+      title: "NewStrides — Global Education Roadmap",
+      description: "Overseas education webinar registration page. Features urgency countdown, inline form, university trust logos (Oxford, MIT, Harvard), risk-vs-guidance comparison, and alumni social proof. Designed for high lead capture.",
+      industry: "Education / EdTech",
+      role: "Landing Page Design, Copy & Lead Funnel · AI-Assisted Build",
+      url: "https://newstrides.co/new/webinar-facebook/",
+      image: "webinar.png"
+    },
+    {
+      id: "lp-dpm-audition",
+      title: "DPM Entertainment — National Audition Registration",
+      description: "High-urgency audition registration page featuring Urvashi Rautela as brand ambassador. Countdown timer, ₹999 CTA, 4-step journey breakdown, participant testimonials, and celebrity association for trust. Conversion-focused design.",
+      industry: "Entertainment & Events",
+      role: "Full Page Design, Copy & CRO Strategy · AI-Assisted Build",
+      url: "https://dpm-landing-page.vercel.app/",
+      image: "public/ad-creatives/lp-dpm-audition.png"
     }
   ],
 
