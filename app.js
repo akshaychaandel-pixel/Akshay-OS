@@ -458,6 +458,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cases = PORTFOLIO_DATA.caseStudies;
     window.openCaseStudyRoute = function(id, title) {
       const overlay = document.createElement('div');
+      overlay.id = 'case-loading-overlay';
       overlay.style.cssText = 'position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(17, 27, 33, 0.85);backdrop-filter:blur(8px);z-index:9999;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity 0.3s;';
       overlay.innerHTML = `
         <div style="color:white; font-family:'Inter', sans-serif; font-size:16px; font-weight:500; display:flex; flex-direction:column; align-items:center; gap:15px;">
@@ -733,6 +734,16 @@ document.addEventListener('DOMContentLoaded', () => {
         if (topWin && windows[topWin]) {
           windows[topWin].element.querySelector('.close-btn').click();
         }
+      }
+    }
+  });
+
+  // Fix for mobile back button (bfcache) leaving the loading overlay on screen
+  window.addEventListener('pageshow', (e) => {
+    if (e.persisted) {
+      const loadingOverlay = document.getElementById('case-loading-overlay');
+      if (loadingOverlay) {
+        loadingOverlay.remove();
       }
     }
   });
